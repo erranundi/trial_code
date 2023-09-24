@@ -8,13 +8,18 @@ using code = vision::code;
 brain  Brain;
 
 // VEXcode device constructors
-motor leftMotorA = motor(PORT1, ratio18_1, false);
-motor leftMotorB = motor(PORT10, ratio18_1, false);
-motor_group LeftDriveSmart = motor_group(leftMotorA, leftMotorB);
+motor leftMotorFront = motor(PORT1, ratio18_1, false);
+motor leftMotorBack = motor(PORT10, ratio18_1, false);
+motor_group LeftDriveSmart = motor_group(leftMotorFront, leftMotorBack);
 
-motor rightMotorA = motor(PORT11, ratio18_1, true); 
-motor rightMotorB = motor(PORT20, ratio18_1, true); 
-motor_group RightDriveSmart = motor_group(rightMotorA, rightMotorB);
+motor rightMotorFront = motor(PORT11, ratio18_1, true); 
+motor rightMotorBack = motor(PORT20, ratio18_1, true); 
+motor_group RightDriveSmart = motor_group(rightMotorFront, rightMotorBack);
+
+int percent_increment = 20;
+double gap = 0.01;
+
+controller user_input = controller();
 
 drivetrain Drivetrain = drivetrain(LeftDriveSmart, RightDriveSmart, 319.19, 295, 165, mm, 1);
 
